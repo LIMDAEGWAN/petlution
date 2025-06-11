@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>오늘화식 급여량 계산기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>오늘화식 급여량 계산기</h2>
+
+    <!-- 탭 버튼 -->
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab('mealOnly')">1. 오늘화식만 급여</button>
+      <button class="tab-button" onclick="showTab('withKibble')">2. 사료와 함께 급여</button>
+    </div>
+
+    <!-- 오늘화식만 급여 탭 -->
+    <div id="mealOnly" class="tab-content active">
+      <label>오늘화식 선택</label>
+      <select id="mealOnlyType">
+        <option value="46.45">오늘화식 닭 (50g당 46.45kcal)</option>
+        <option value="56.65">오늘화식 오리 (50g당 56.65kcal)</option>
+        <option value="63.40">오늘화식 소 (50g당 63.40kcal)</option>
+        <option value="49.62">오늘화식 양 (50g당 49.62kcal)</option>
+      </select>
+
+      <label>몸무게 (kg)</label>
+      <input type="number" id="mealOnlyWeight" placeholder="예: 7.5" />
+
+      <label>반려견 기준</label>
+      <select id="mealOnlyAge">
+        <option value="senior">7세 이상 중성화 완료한 노령견</option>
+        <option value="adult">활동적인 성견</option>
+        <option value="inactive">비활동적인 성견</option>
+        <option value="puppy">자견</option>
+      </select>
+
+      <button onclick="calculateMealOnly()">급여량 계산</button>
+      <div id="mealOnlyResult" class="result"></div>
+    </div>
+
+    <!-- 사료와 함께 급여 탭 -->
+    <div id="withKibble" class="tab-content">
+      <label>오늘화식 선택</label>
+      <select id="kibbleMealType">
+        <option value="46.45">오늘화식 닭 (50g당 46.45kcal)</option>
+        <option value="56.65">오늘화식 오리 (50g당 56.65kcal)</option>
+        <option value="63.40">오늘화식 소 (50g당 63.40kcal)</option>
+        <option value="49.62">오늘화식 양 (50g당 49.62kcal)</option>
+      </select>
+
+      <label>오늘화식 급여량 (팩)</label>
+      <input type="number" id="kibbleMealCount" min="0" value="1" />
+
+      <label>몸무게 (kg)</label>
+      <input type="number" id="kibbleWeight" placeholder="예: 7.5" />
+
+      <label>반려견 기준</label>
+      <select id="kibbleAge">
+        <option value="senior">7세 이상 중성화 완료한 노령견</option>
+        <option value="adult">활동적인 성견</option>
+        <option value="inactive">비활동적인 성견</option>
+        <option value="puppy">자견</option>
+      </select>
+
+      <button onclick="calculateWithKibble()">급여량 계산</button>
+      <div id="kibbleResult" class="result"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
